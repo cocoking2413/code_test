@@ -3,19 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style type="text/css">
-        body{
-            background-color: black;
-            color: white;
-            font-size: 24pt;
+    <link rel="stylesheet" href="../public/css/zui.min.css">
+    <script src="../public/js/jquery.js"></script>
+    <script src="../public/js/zui.min.js"></script>
+    <script type="text/javascript" src="./resouces/js/Query.js"></script>
+    <script type="text/javascript" src="./resouces/js/index.js"></script>
+    <style>
+        * {
             padding: 0;
             margin: 0;
-            overflow: hidden;
+            outline: none;
+            border: none;
+            font-size: 12px;
+        }
+
+        #container {
+            width: 500px;
+            top: 20px;
+            left: 50px;
+            position: absolute;
+        }
+
+        #imgList {
+            margin: 50px 570px;
+            width: 400px;
+            float: left;
+            display: inline;
+        }
+
+        #imgList img {
+            margin: 0 10px 10px 0;
+            float: left;
+            display: inline;
+        }
+
+        #clip {
+            width: 80px;
+            height: 22px;
+            font-weight: bold;
+            color: #fff;
+            line-height: 22px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: 1px solid #333;
+            float: right;
+        }
+
+        #result {
+            padding: 10px 0;
         }
     </style>
-    <script type="text/javascript" src="../public/js/index.js"></script>
+
 </head>
 <body>
-<canvas id="img_explore"></canvas>
+<div id="container" >
+    <input type="file" id="file_upload" class="btn-info"/>
+    <input type="button" value="剪切" id="clip" class="btn-default"/>
+    <div id="result" ></div>
+</div>
+<div id="imgList"></div>
 </body>
+<script>
+    (function () {
+        var input = document.getElementById('file_upload');
+        input.addEventListener("change", function () {
+            var me = this,
+                    fc = new Widget.ScreenShot('result', {
+                        file: me.files[0],
+                        height: 500,
+                        width: 500
+                    });
+            fc.init();
+            $.g("clip").onclick = function () {
+                var img = new Image(),
+                        src = fc.clip();
+                img.src = src;
+                $.g('imgList').appendChild(img);
+            };
+        });
+    })();
+</script>
 </html>
