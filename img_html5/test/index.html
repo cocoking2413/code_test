@@ -77,7 +77,7 @@
                 var img = new Image(),
                         src = fc.clip();
                 img.src = src;
-                $.g('imgList').appendChild(img);
+                $.prependTo("imgList",img);
             };
         });
     })();
