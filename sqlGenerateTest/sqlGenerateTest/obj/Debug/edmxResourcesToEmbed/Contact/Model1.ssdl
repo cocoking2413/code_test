@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="oa_ApproveFlow">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApproveID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="ApproveUser" Type="int" Nullable="false" />
+    <Property Name="ApproveUserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApproveComment" Type="nvarchar" MaxLength="2000" />
+    <Property Name="State" Type="int" Nullable="false" />
+    <Property Name="ApproveTime" Type="datetime" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar(max)" />
+    <Property Name="ZMSCompanyID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="oa_ApproveInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PositionID" Type="int" Nullable="false" />
+    <Property Name="PositionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="State" Type="int" Nullable="false" />
+    <Property Name="AttachmentGUID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="JsonContent" Type="nvarchar(max)" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar(max)" />
+    <Property Name="Lable" Type="nvarchar" MaxLength="50" />
+    <Property Name="CurApproveUserID" Type="int" Nullable="false" />
+    <Property Name="CurApproveUserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="OperateLog" Type="nvarchar(max)" />
+    <Property Name="ZMSCompanyID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="oa_ApproveFlow" EntityType="Self.oa_ApproveFlow" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="oa_ApproveInfo" EntityType="Self.oa_ApproveInfo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

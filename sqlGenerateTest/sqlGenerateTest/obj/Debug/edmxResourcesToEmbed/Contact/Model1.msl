@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="oa_ApproveFlow">
+      <EntityTypeMapping TypeName="Model.oa_ApproveFlow">
+        <MappingFragment StoreEntitySet="oa_ApproveFlow">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ApproveID" ColumnName="ApproveID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ApproveUser" ColumnName="ApproveUser" />
+          <ScalarProperty Name="ApproveUserName" ColumnName="ApproveUserName" />
+          <ScalarProperty Name="ApproveComment" ColumnName="ApproveComment" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ApproveTime" ColumnName="ApproveTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ZMSCompanyID" ColumnName="ZMSCompanyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oa_ApproveInfo">
+      <EntityTypeMapping TypeName="Model.oa_ApproveInfo">
+        <MappingFragment StoreEntitySet="oa_ApproveInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="AttachmentGUID" ColumnName="AttachmentGUID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="JsonContent" ColumnName="JsonContent" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Lable" ColumnName="Lable" />
+          <ScalarProperty Name="CurApproveUserID" ColumnName="CurApproveUserID" />
+          <ScalarProperty Name="CurApproveUserName" ColumnName="CurApproveUserName" />
+          <ScalarProperty Name="OperateLog" ColumnName="OperateLog" />
+          <ScalarProperty Name="ZMSCompanyID" ColumnName="ZMSCompanyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,13 @@
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\bin\Debug\HtmlToPdf.exe.config
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\bin\Debug\HtmlToPdf.exe
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\bin\Debug\HtmlToPdf.pdb
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\obj\Debug\HtmlToPdf.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\obj\Debug\HtmlToPdf.Form1.resources
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\obj\Debug\HtmlToPdf.Properties.Resources.resources
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\obj\Debug\HtmlToPdf.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\obj\Debug\HtmlToPdf.exe
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\obj\Debug\HtmlToPdf.pdb
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\bin\Debug\wkhtmltopdf.exe
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\bin\Debug\itextsharp.dll
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\bin\Debug\Microsoft.OpenPublishing.Build.HtmlConverters.HtmlToPdf.dll
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\bin\Debug\itextsharp.xml
