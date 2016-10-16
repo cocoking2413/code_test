@@ -633,9 +633,17 @@ namespace HtmlToPdf {
 						cb.SetRGBColorStroke(0, 0, 255);
 						cb.FillStroke();
 
-						//箭头
-						//上
-						cb.MoveTo(doc.PageSize.Width / 2, doc.PageSize.Height / 2);
+                        generateArrow(cb, doc.PageSize.Width - 10 - 180 / Math.Sqrt(2), doc.PageSize.Height / 2 + 150 / Math.Sqrt(2), 5, 10, new Func<double [ , ], double [ , ]>(arr => {
+                            arr = arr.rotate(135);
+                            return arr;
+                        }), 2);
+                        cb.SetRGBColorFill(0, 0, 255);
+                        cb.SetRGBColorStroke(0, 0, 255);
+                        cb.FillStroke();
+
+                        //箭头
+                        //上
+                        cb.MoveTo(doc.PageSize.Width / 2, doc.PageSize.Height / 2);
 						cb.LineTo(doc.PageSize.Width / 2, doc.PageSize.Height / 2 + 100);
 						cb.SetRGBColorStroke(0, 0, 255);
 						cb.SetLineDash(2, 6);
@@ -781,8 +789,35 @@ namespace HtmlToPdf {
 			}
 			cb.ClosePath();
 		}
-
-
+        /// <summary>
+        /// shengchengquxianjiantou  zhuyaoshijiantouhudujisuan
+        /// </summary>
+        /// <param name="cb"></param>
+        /// <param name="type"></param>
+        /// <param name="arcPoints"></param>
+        /// <param name="arrows"></param>
+        /// <param name="arrowFunc">canshuyicishi jiantoudianzuobiao hudu</param>
+        private static void generatArcArrow(PdfContentByte cb,int type,double[,] arcPoints,double[,] arrows,Action<double,double,int> arrowFunc) {
+            switch ( type ) {
+                case 1://bl
+                    if ( arcPoints.Length / 2 > 2 ) {
+                        cb.MoveTo(arcPoints [0, 0], arcPoints [0, 1]);
+                        if ( arcPoints.Length / 2 == 3 )
+                            cb.CurveTo(arcPoints [1, 0], arcPoints [1, 1], arcPoints [2, 0], arcPoints [2, 1]);
+                        else if ( arcPoints.Length / 2 == 4 )
+                            cb.CurveTo(arcPoints [1, 0], arcPoints [1, 1], arcPoints [2, 0], arcPoints [2, 1], arcPoints [3, 0], arcPoints [3, 1]);
+                    }
+                    break;
+                case 0://arc
+                    if (arcPoints.Length/2==4) {
+                        cb.MoveTo(arcPoints[0,0],arcPoints[0,1]);
+                        cb.Arc(arcPoints [1, 0], arcPoints [1, 1], arcPoints [2, 0], arcPoints [2, 1], arcPoints [3, 0], arcPoints [3, 1]);
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
 
 
 		private static void generateList<T>(Document doc, out Paragraph paragraph, string text, Func<T> func, Func<T, T> action = null) where T : List {

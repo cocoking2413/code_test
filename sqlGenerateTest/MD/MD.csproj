@@ -41,9 +41,8 @@
       <HintPath>..\packages\Markdown.2.2.0\lib\net451\Markdown.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.OpenPublishing.Build.HtmlConverters.HtmlToPdf, Version=1.1.36.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HtmlToPdf.1.0.4\lib\Microsoft.OpenPublishing.Build.HtmlConverters.HtmlToPdf.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="NReco.PdfGenerator">
+      <HintPath>..\packages\NReco.PdfGenerator.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -11,3 +11,6 @@ C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\bin\Debug\wkhtml
 C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\bin\Debug\itextsharp.dll
 C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\bin\Debug\Microsoft.OpenPublishing.Build.HtmlConverters.HtmlToPdf.dll
 C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\bin\Debug\itextsharp.xml
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\obj\Debug\HtmlToPdf.Form2.resources
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\bin\Debug\NReco.PdfGenerator.dll
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\HtmlToPdf\bin\Debug\NReco.PdfGenerator.xml

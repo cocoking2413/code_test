@@ -39,6 +39,8 @@ namespace HtmlToPdf {
 			}
 			return arr;
 		}
-
+        public static int rad(this double[,] arr,bool left=true) {
+            return 0;
+        }
 	}
 }

@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using HeyRed.MarkdownSharp;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using Microsoft.OpenPublishing.Build.HtmlConverters.HtmlToPdf;
+using NReco.PdfGenerator;
 
 namespace MD {
 	public partial class Main : Form {
@@ -124,13 +124,15 @@ namespace MD {
 				//设置标题
 				save.Title = "导出";
 				if ( save.ShowDialog() == DialogResult.OK ) {
-				turnPDF(save.FileName,new Action<bool>((bl) => {
-					if ( !bl ) MessageBox.Show("导出失败！");
+				turnPDF(save.FileName,new Action<Exception>(error => {
+                    if ( error != null ) {
+
+                    }
 					}));
 				}
 		
 		}
-		private void turnPDF(string path,Action<bool> callBack) {
+		private void turnPDF(string path,Action<Exception> callBack) {
 			string htmlPath=System.Windows.Forms.Application.StartupPath.Replace(@"bin\Debug", "") + @"\public\workfile\temphtml.html";
 			try {
 
@@ -156,35 +158,38 @@ namespace MD {
 				}
 				catch ( Exception ex ) {
 					MessageBox.Show(ex.Message, "save html error:");
-				}
-				#endregion
+                    callBack(ex);
+                }
+                #endregion
 
-				#region html=>pdf
-				#endregion
+                #region html=>pdf
+                try {
+                    var conv = new HtmlToPdfConverter();
+                    var pdf = conv.GeneratePdfFromFile(htmlPath, "");
 
-				#region 保存pdf
-				try {
-					//实例化一个文件流--->与写入文件相关联
-					FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
-					//实例化一个StreamWriter-->与fs相关联
-					StreamWriter sw = new StreamWriter(fs);
-					//开始写入
-					sw.Write("");
-					//清空缓冲区
-					sw.Flush();
-					//关闭流
-					sw.Close();
-					fs.Close();
-				}
-				catch ( Exception ex ) {
-					MessageBox.Show(ex.Message, "save pdf error:");
-				}
-				#endregion
-			}
+                    #region 保存pdf
+                    try {
+                        File.WriteAllBytes(path, pdf);
+                    }
+                    catch ( Exception ex ) {
+                        MessageBox.Show(ex.Message, "save pdf error:");
+                        callBack(ex);
+                    }
+                    #endregion
+
+                }
+                catch ( Exception ex ) {
+                    MessageBox.Show(ex.Message, "turn pdf error:");
+                    callBack(ex);
+                }
+                #endregion
+
+            }
 			catch ( Exception ex ) {
 				MessageBox.Show(ex.Message, "turn error:");
-			}
-		}
+                callBack(ex);
+            }
+        }
 		/// <summary>  
 		/// 将Html文字 输出到PDF档里  
 		/// </summary>  
@@ -368,5 +373,33 @@ namespace MD {
 				}
 			}
 		}
-	}
+
+        private void 关闭ToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
+
+        private void hTMLToolStripMenuItem_Click(object sender, EventArgs e) {
+            
+        }
+
+        private void pDFToolStripMenuItem_Click(object sender, EventArgs e) {
+            savePDF_Btn_click(sender,e);
+        }
+
+        private void 保存ToolStripMenuItem_Click(object sender, EventArgs e) {
+            save_Btn_click(sender, e);
+        }
+
+        private void 另存为ToolStripMenuItem_Click(object sender, EventArgs e) {
+            save_Btn_click(sender, e);
+        }
+
+        private void 新建ToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
+
+        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e) {
+            this.Close();
+        }
+    }
 }

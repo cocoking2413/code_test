@@ -1,6 +1,5 @@
 C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\MD\bin\Debug\itextsharp.dll
 C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\MD\bin\Debug\Markdown.dll
-C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\MD\bin\Debug\Microsoft.OpenPublishing.Build.HtmlConverters.HtmlToPdf.dll
 C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\MD\bin\Debug\itextsharp.xml
 C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\MD\obj\Debug\MD.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\MD\obj\Debug\MD.Main.resources
@@ -11,3 +10,5 @@ C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\MD\obj\Debug\MD.pdb
 C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\MD\bin\Debug\MD.exe.config
 C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\MD\bin\Debug\MD.exe
 C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\MD\bin\Debug\MD.pdb
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\MD\bin\Debug\NReco.PdfGenerator.dll
+C:\Users\Administrator\Desktop\csharp\sqlGenerateTest\MD\bin\Debug\NReco.PdfGenerator.xml
