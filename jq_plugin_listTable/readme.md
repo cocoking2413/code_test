@@ -14,16 +14,18 @@
 
 ##### 目录结构
  
-├── Readme.md                 // help   
-├── dist                         
-│   ├── jquery.zms.listTable.min.js  
-│   └── jquery.zms.listTable.js //插件js     
-├── src                      //外部依赖     
+├── Readme.md                 // help  
+├── bin                         
+│   ├── jquery.zms.listTable2.min.js   
+├── lib                      //外部依赖     
 │   ├── layer    
 │   │	└── layer.js 		 
 │   ├──jquery-1.9.1.min.js     
 │   └──template.js    		//artTemplate 
-└── tools  
+├── src                         
+│   └── jquery.zms.listTable.js //插件js   
+└── test
+    └── jquery.zms.listTable.min.js    
 
 
 ##### 使用方法
@@ -40,6 +42,13 @@
     });
 	</script>
 
+
+
+##### V0.0.2 版本
+1. 加入gulp
+2. 结构调整
+3. 样式依据项目要求覆盖
+4. 节点根据项目需要处理过
 
 ##### V0.0.1 版本
 1. 基础样子
