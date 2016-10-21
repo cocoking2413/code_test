@@ -1,73 +1,32 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="../src/jquery-1.9.1.min.js"></script>
-    <script src="../src/template.js"></script>
-    <script src="../src/layer/layer.js"></script>
-    <script src="../dist/jquery.zms.listTable.js"></script>
+    <script src="../lib/jquery-1.9.1.min.js"></script>
+    <script src="../lib/template.js"></script>
+    <script src="../lib/layer/layer.js"></script>
+    <!--<script src="../src/jquery.zms.listTable2.js"></script>-->
+    <script src="../bin/js/jquery.zms.listTable2.min.js"></script>
     <style type="text/css" rel="stylesheet">
-
     </style>
 </head>
 <body>
-<div class="listTable"></div>
-<script type="text/template" id="temp_zms_listTable_svgframe">
-    <h3 style="text-align: center;vertical-align: middle;padding: 10px 0" width="{{size.width}}" height="50px">{{data.title}}</h3>
-    <svg width="{{size.width}}" height="{{size.height}}" xmlns="http://www.w3.org/2000/svg" style="max-height:{{size.maxHeight}};overflow:{{overflow}}">
-        <defs>
-            {{each stateArray}}
-            <marker id="arrow_{{$value.state}}"
-                    markerUnits="strokeWidth"
-                    markerWidth="12"
-                    markerHeight="12"
-                    viewBox="0 0 12 12"
-                    refX="6"
-                    refY="6"
-                    orient="auto">
-                <path d="M2,2 L10,6 L2,10 L6,6 L2,2" style="fill:{{$value.arrowcolor}};" />
-            </marker>
-            {{/each}}
-        </defs>
-        <g>
-            <rect fill="{{bgcolor}}" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
-            <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
-                <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
-            </g>
-        </g>
-        {{each data.list}}
-        <g class="zms_listTable node" data-title="{{$value.popTitle}}" data-content="{{$value.popContent}}">
-            <rect stroke="{{stateArray[$value.state].bgcolor2}}" id="svg_1_{{$value.id}}" height="{{size.arrowHeight}}" width="{{size.arrowHeight*size.raw}}" y="{{size.arrowHeight*(3*$index+1)}}"
-                  x="{{(size.width-size.arrowHeight*size.raw)/2}}" stroke-width="0.5" fill="{{stateArray[$value.state].bgcolor1}}">
-            </rect>
-            <rect stroke="{{stateArray[$value.state].bgcolor2}}" id="svg_2_{{$value.id}}" height="{{size.arrowHeight}}" width="{{size.arrowHeight*size.raw}}"
-                  y="{{size.arrowHeight*(3*$index+2)}}" x="{{(size.width-size.arrowHeight*size.raw)/2}}" fill-opacity="null" stroke-opacity="null" stroke-width="0.5"
-                  fill="{{stateArray[$value.state].bgcolor2}}"/>
-            <text xml:space="preserve" style="cursor: default" text-anchor="middle" font-family="{{font}}" font-size="{{fontsize}}" id="svg_5_{{$value.id}}" x="50%" y="{{size.arrowHeight*(3*$index+1.6)}}" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="{{stateArray[$value.state].color1}}" fill="{{stateArray[$value.state].color1}}">{{$value.title}}</text>
-            <text xml:space="preserve" style="cursor: default" text-anchor="middle" font-family="{{font}}" font-size="{{fontsize}}" id="svg_6_{{$value.id}}" x="50%" y="{{size.arrowHeight*(3*$index+2.6)}}" fill-opacity="null" stroke-opacity="null" stroke-width="0"  stroke="{{stateArray[$value.state].color2}}" fill="{{stateArray[$value.state].color2}}">{{$value.oprate}}-{{stateArray[$value.state].name}}:{{$value.appUserName}}</text>
-        </g>
-        <line x1="{{size.width/2}}" y1="{{size.arrowHeight*(3*$index+3)}}" x2="{{size.width/2}}" y2="{{size.arrowHeight*(3*$index+4)-5}}"  stroke="{{stateArray[$value.state].arrowcolor}}" stroke-width="2" marker-end="url(#arrow_{{$value.state}})"/>
-        {{/each}}
-        <g>
-            <rect stroke="{{stateArray[data.state].bgcolor2}}" id="svg_end" height="{{size.arrowHeight}}" width="{{size.arrowHeight*size.raw}}" y="{{size.arrowHeight*(3*data.list.length+1)}}"
-                  x="{{(size.width-size.arrowHeight*size.raw)/2}}" stroke-width="0.5" fill="{{stateArray[data.state].bgcolor2}}">
-            </rect>
-            <text xml:space="preserve" style="cursor: default" text-anchor="middle" font-family="{{font}}" font-size="{{fontsize}}" id="svg_end_text" x="50%" y="{{size.arrowHeight*(3*data.list.length+1.6)}}" fill-opacity="null" stroke-opacity="null" stroke-width="0"  stroke="{{stateArray[data.state].color2}}" fill="{{stateArray[data.state].color2}}">{{stateArray[data.state].name}}</text>
-        </g>
-    </svg>
-</script>
+    <div class="listTable"></div>
 
-</body>
-<script>
-    $(function () {
-        $(".listTable").zms_listTable({
-            bgcolor: '#bbcee9',
-            svgframe: "temp_zms_listTable_svgframe",
-            fontsize: "20",
-            size:{width:'600',height:'600',maxHeight:'1200px',arrowHeight:40,raw:5},
-            // size:{height:'600px'}
+    <script type="text/template" id="temp_zms_listTable_svgframe">
+        <h3 style="text-align: center;vertical-align: middle;padding: 10px 0" width="{{size.width}}" height="50px">{{data.title}}</h3>
+        <svg rx="{{size.rx}}" ry="{{size.ry}}" width="{{size.width}}" height="{{size.height}}" xmlns="http://www.w3.org/2000/svg" style="max-height:{{size.maxHeight}};overflow:{{overflow}};"><defs> {{each stateArray}}<marker id="arrow_{{$value.state}}" markerUnits="strokeWidth" markerWidth="12" markerHeight="12" viewBox="0 0 12 12" refX="6" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 L6,6 L2,2" style="fill:{{$value.arrowcolor}};" /></marker> {{/each}}</defs> <g><rect fill="{{bgcolor}}" id="canvas_background" height="402" width="582" y="-1" x="-1" /><g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid"> <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%" /></g> </g>{{each data.list}}<g class="zms_listTable node" data-title="{{$value.popTitle}}" data-content="{{$value.popContent}}"><rect stroke="{{stateArray[$value.state].bgcolor2}}" id="svg_1_{{$value.id}}" height="{{size.arrowHeight}}" width="{{size.arrowHeight*size.raw}}" y="{{size.arrowHeight*(3*$index+1)}}" x="{{(size.width-size.arrowHeight*size.raw)/2}}" stroke-width="0.5" fill="{{stateArray[$value.state].bgcolor1}}"> </rect> <rect stroke="{{stateArray[$value.state].bgcolor2}}" id="svg_2_{{$value.id}}" height="{{size.arrowHeight}}" width="{{size.arrowHeight*size.raw}}" y="{{size.arrowHeight*(3*$index+2)}}" x="{{(size.width-size.arrowHeight*size.raw)/2}}" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" fill="{{stateArray[$value.state].bgcolor2}}" /><text xml:space="preserve" style="cursor: default" text-anchor="middle" font-family="{{font}}" font-size="{{fontsize}}" id="svg_5_{{$value.id}}" x="50%" y="{{size.arrowHeight*(3*$index+1.6)}}" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="{{stateArray[$value.state].color1}}" fill="{{stateArray[$value.state].color1}}">{{$value.appTime | dateFormat:"yyyy-MM-dd hh:mm"}}</text><text xml:space="preserve" style="cursor: default" text-anchor="middle" font-family="{{font}}" font-size="{{fontsize}}" id="svg_6_{{$value.id}}" x="50%" y="{{size.arrowHeight*(3*$index+2.6)}}" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="{{stateArray[$value.state].color2}}" fill="{{stateArray[$value.state].color2}}">{{stateArray[$value.state].name}}-{{$value.appUserName}}</text></g><line x1="{{size.width/2}}" y1="{{size.arrowHeight*(3*$index+3)}}" x2="{{size.width/2}}" y2="{{size.arrowHeight*(3*$index+4)-5}}" stroke="{{stateArray[$value.state].arrowcolor}}" stroke-width="2" marker-end="url(#arrow_{{$value.state}})" />  {{/each}} <g><rect stroke="{{stateArray[data.state].bgcolor2}}" id="svg_end" height="{{size.arrowHeight}}" width="{{size.arrowHeight*size.raw}}" y="{{size.arrowHeight*(3*data.list.length+1)}}" x="{{(size.width-size.arrowHeight*size.raw)/2}}" stroke-width="0.5" fill="{{stateArray[data.state].bgcolor2}}"></rect><text xml:space="preserve" style="cursor: default" text-anchor="middle" font-family="{{font}}" font-size="{{fontsize}}" id="svg_end_text" x="50%" y="{{size.arrowHeight*(3*data.list.length+1.6)}}" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="{{stateArray[data.state].color2}}" fill="{{stateArray[data.state].color2}}">{{stateArray[data.state].name}}</text></g></svg>
+    </script>
+    <script>
+        $(function () {
+            $(".listTable").zms_listTable({
+                bgcolor: '#bbcee9',
+                svgframe: "temp_zms_listTable_svgframe",
+                fontsize: "20",
+                size: { width: '600', height: '600', maxHeight: '1200px', arrowHeight: 40, raw: 5 },
+            });
         });
-    });
-</script>
+    </script>
+</body>
 </html>
