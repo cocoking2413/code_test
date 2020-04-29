@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "dependencies": {
     "gulp": "^3.9.1",
-    "jquery": "^1.9.1"
+    "jquery": "^3.5.0"
   },
   "devDependencies": {
     "boilerplate": "^0.6.1",
